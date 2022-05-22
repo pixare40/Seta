@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
+import { WebView } from 'react-native-webview';
 
 export default function HomeScreen() {
     return (
-        <View style={styles.container}>
-            <Text>Seta</Text>
-        </View>
+        <WebView source={{ uri: 'https://seta.live/' }} />
     )
 }
 
