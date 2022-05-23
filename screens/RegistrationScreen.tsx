@@ -1,5 +1,7 @@
-import { View, Text, StyleSheet, Pressable, TextInput, Button } from "react-native"
+import { View, Text, StyleSheet, Pressable, TextInput, Button, ScrollView } from "react-native"
 import { Fontisto } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { MaterialIcons } from '@expo/vector-icons';
 import Checkbox from 'expo-checkbox';
 import { useState } from "react";
@@ -7,18 +9,18 @@ import { useState } from "react";
 const RegistrationScreen = () => {
     const [isChecked, setChecked] = useState(false);
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
             <Text style={{ fontSize: 30, alignSelf: 'stretch', color: '#7B70F5' }}>Sign up it's free</Text>
             <Text style={{ fontSize: 10, alignSelf: 'stretch', color: '#7B70F5' }}>Enter your credentials to continue</Text>
             <View style={styles.buttonContainer}>
                 <Pressable style={styles.socialIcons}>
-                    <Fontisto style={{ alignSelf: "center" }} name="google-plus" size={24} color="black" />
+                    <FontAwesome style={{ alignSelf: "center" }} name="google" size={18} color="#EA4434" />
                 </Pressable>
                 <Pressable style={styles.socialIcons}>
-                    <MaterialIcons style={{ alignSelf: "center" }} name="facebook" size={24} color="black" />
+                    <MaterialIcons style={{ alignSelf: "center" }} name="facebook" size={24} color="#4295F5" />
                 </Pressable>
                 <Pressable style={styles.socialIcons}>
-                    <Fontisto style={{ alignSelf: "center" }} name="apple" size={24} color="black" />
+                    <Fontisto style={{ alignSelf: "center" }} name="apple" size={20} color="#808080" />
                 </Pressable>
             </View>
             <View style={styles.textContainer}>
@@ -39,7 +41,7 @@ const RegistrationScreen = () => {
                 <Text>By continuing you agree to our Terms of service and Privacy Policy</Text>
             </View>
             <Text>Already have an account? Login</Text>
-        </View>
+        </ScrollView>
     )
 }
 

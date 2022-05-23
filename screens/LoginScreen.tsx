@@ -1,22 +1,23 @@
-import { View, Text, StyleSheet, Image, Button, TextInput, Pressable } from "react-native";
+import { View, Text, StyleSheet, Image, Button, TextInput, Pressable, ScrollView } from "react-native";
 import logo from '../assets/logo.png';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const LoginScreen = () => {
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
             <Image source={logo} />
             <Text style={{ fontSize: 20 }}>Login</Text>
             <View style={styles.buttonContainer}>
                 <Pressable style={styles.socialIcons}>
-                    <Fontisto style={{ alignSelf: "center" }} name="google-plus" size={24} color="black" />
+                    <FontAwesome style={{ alignSelf: "center" }} name="google" size={18} color="#EA4434" />
                 </Pressable>
                 <Pressable style={styles.socialIcons}>
-                    <MaterialIcons style={{ alignSelf: "center" }} name="facebook" size={24} color="black" />
+                    <MaterialIcons style={{ alignSelf: "center" }} name="facebook" size={24} color="#4295F5" />
                 </Pressable>
                 <Pressable style={styles.socialIcons}>
-                    <Fontisto style={{ alignSelf: "center" }} name="apple" size={24} color="black" />
+                    <Fontisto style={{ alignSelf: "center" }} name="apple" size={20} color="#808080" />
                 </Pressable>
             </View>
             <Text>or Login with Email</Text>
@@ -28,7 +29,7 @@ const LoginScreen = () => {
                 <Button color='white' title="Login" />
             </Pressable>
             <Text>Don't have an account? Register</Text>
-        </View >
+        </ScrollView >
     )
 }
 
