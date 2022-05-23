@@ -51,15 +51,13 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderWidth: 1,
         marginBottom: 10,
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingHorizontal: 10,
         backgroundColor: '#fff',
         borderRadius: 10
     },
     textContainer: {
         alignSelf: 'stretch',
-        marginTop: 20,
-        marginBottom: 20
+        marginVertical: 20,
     },
     loginButton: {
         height: 50,
