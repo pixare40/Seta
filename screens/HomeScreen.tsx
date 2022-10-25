@@ -1,9 +1,17 @@
-import { View, Text, StyleSheet } from "react-native";
-import { WebView } from 'react-native-webview';
+import { useState } from "react";
+import { StyleSheet } from "react-native";
+import { Text } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function HomeScreen() {
+    const [city, setCity] = useState<string>();
+
+
+
     return (
-        <WebView source={{ uri: 'https://seta.live/' }} />
+        <ScrollView>
+        <Text>Discover </Text>
+        </ScrollView>
     )
 }
 
