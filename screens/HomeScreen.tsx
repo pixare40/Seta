@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Text } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, TextInput } from "react-native-gesture-handler";
 
 export default function HomeScreen() {
 	const [city, setCity] = useState<string>();
@@ -9,6 +9,7 @@ export default function HomeScreen() {
 	return (
 		<ScrollView>
 			<Text>Discover </Text>
+			<TextInput placeholder="Search" />
 		</ScrollView>
 	);
 }
