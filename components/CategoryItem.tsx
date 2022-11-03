@@ -1,5 +1,5 @@
-import { Pressable, View } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { Pressable, View, Text } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 interface ICategoryItemProps {
 	name: string;
@@ -11,7 +11,7 @@ const CategoryItem = (props: ICategoryItemProps) => {
 	return (
 		<View>
 			<Pressable>
-				<FontAwesome
+				<FontAwesome5
 					style={{ alignSelf: "center" }}
 					name={props.categoryIcon as any}
 					size={18}

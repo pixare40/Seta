@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Text } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
+import CategoryMenu from "../components/CategoryMenu";
 
 export default function HomeScreen() {
 	const [city, setCity] = useState<string>();
@@ -10,6 +11,7 @@ export default function HomeScreen() {
 		<ScrollView>
 			<Text>Discover </Text>
 			<TextInput placeholder="Search" />
+			<CategoryMenu />
 		</ScrollView>
 	);
 }

@@ -1,10 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { getCategories } from "../../services/CategoryServices";
+import { ICategory } from "./types";
 
 interface CategoriesState {
-	categories: [];
+	categories: ICategory[];
 	isLoading: boolean;
 	error: any;
 }
@@ -14,6 +15,16 @@ const initialState: CategoriesState = {
 	isLoading: false,
 	error: null,
 };
+
+export const fetchCategories = createAsyncThunk(
+	"categories/fetchCategories",
+	async (thunkAPI) => {
+		console.log("Thunk api object", thunkAPI);
+		const response = await getCategories();
+		console.log("response", response);
+		return response.data as ICategory[];
+	}
+);
 
 export const categoriesSlice = createSlice({
 	name: "categories",
@@ -30,21 +41,24 @@ export const categoriesSlice = createSlice({
 			state.error = "Error fetching Categories";
 		},
 	},
+	extraReducers: (builder) => {
+		builder.addCase(fetchCategories.fulfilled, (state, action) => {
+			state.categories = action.payload;
+			state.isLoading = false;
+		});
+		builder.addCase(fetchCategories.rejected, (state) => {
+			state.isLoading = false;
+			state.error = "Error Loading Categories";
+		});
+		builder.addCase(fetchCategories.pending, (state) => {
+			state.isLoading = true;
+		});
+	},
 });
 
 export const { fetchingCategories, errorFetchingCategories, addCategories } =
 	categoriesSlice.actions;
 
-const fetchCategories = () => async (dispatch: any) => {
-	dispatch(fetchingCategories());
-	try {
-		const response = await getCategories();
-		console.log("response received", response);
-	} catch {
-		dispatch(errorFetchingCategories());
-	}
-};
-
-export const selectCategories = (state: RootState) => state.category.categories;
+export const selectCategories = (state: RootState) => state.category;
 
 export default categoriesSlice.reducer;

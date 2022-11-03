@@ -1,10 +1,35 @@
 import { useEffect } from "react";
-import { Text } from "react-native";
+import { View, Text } from "react-native";
+import {
+	fetchCategories,
+	selectCategories,
+} from "../store/categories/categoriesSlice";
+import { useAppDispatch, useAppSelector } from "../store/store";
+import CategoryItem from "./CategoryItem";
 
 const CategoryMenu = () => {
-	useEffect(() => {}, []);
+	const categoryState = useAppSelector(selectCategories);
+	const dispatch = useAppDispatch();
 
-	return <Text></Text>;
+	useEffect(() => {
+		dispatch(fetchCategories());
+	}, []);
+
+	return (
+		<View>
+			{categoryState.error && <Text>Error Fetching Category Data</Text>}
+			{categoryState.categories &&
+				categoryState.categories.map((category) => {
+					return (
+						<CategoryItem
+							key={category.id}
+							name={category.attributes.name}
+							categoryIcon={category.attributes.categoryIcon}
+						/>
+					);
+				})}
+		</View>
+	);
 };
 
 export default CategoryMenu;
