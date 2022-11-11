@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { getCategories } from "../../services/CategoryServices";
+import { getCategories } from "../../services/Categories";
 import { ICategory } from "./types";
 
 interface CategoriesState {
@@ -39,6 +39,7 @@ export const categoriesSlice = createSlice({
 		},
 		errorFetchingCategories: (state) => {
 			state.error = "Error fetching Categories";
+			state.isLoading = false;
 		},
 	},
 	extraReducers: (builder) => {
