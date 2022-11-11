@@ -19,7 +19,7 @@ export const fetchPromotions = createAsyncThunk(
 	"promotions/fetchPromotions",
 	async (thunkAPI) => {
 		const response = await getPromotions();
-		console.log("promotions response", response);
+		console.log("promotions", response);
 		return response.data as IPromotion[];
 	}
 );

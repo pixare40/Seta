@@ -19,9 +19,7 @@ const initialState: CategoriesState = {
 export const fetchCategories = createAsyncThunk(
 	"categories/fetchCategories",
 	async (thunkAPI) => {
-		console.log("Thunk api object", thunkAPI);
 		const response = await getCategories();
-		console.log("response", response);
 		return response.data as ICategory[];
 	}
 );

@@ -5,7 +5,7 @@ export interface IPromotion {
 		createdAt: string;
 		updatedAt: string;
 		publishedAt: string;
-		primarytext: string;
+		primaryText: string;
 		secondaryText: string;
 		description: string;
 		url: string;

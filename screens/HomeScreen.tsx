@@ -2,9 +2,9 @@ import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Text } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
-import CategoryMenu from "../components/CategoryMenu";
+import CategoryMenu from "../components/Category/CategoryMenu";
 import PromotionContainer from "../components/Promotions/PromotionContainer";
-import Specials from "../components/Specials";
+import Specials from "../components/Specials/Specials";
 
 export default function HomeScreen() {
 	const [city, setCity] = useState<string>();
