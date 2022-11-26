@@ -9,7 +9,6 @@ const Specials = () => {
 			<View style={styles.specials} />
 			<View style={styles.specials} />
 			<View style={styles.specials} />
-			<View style={styles.specials} />
 		</View>
 	);
 };
